@@ -7,5 +7,47 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="src/images/tic-tac-toe-icon.png" type="image/png" />
   </head>
-  <body></body>
+  <body>
+    <h1 class="title">Tic Tac Toe</h1>
+    <h2 class="subtitle">Players turn:</h2>
+    <div id="current-player">Player 1 <span>X</span></div>
+    <div class="content">
+      <div class="start">Player 1, Choose a grid on the board to START</div>
+      <table id="game-board">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <div class="leaderboards">
+        <h2 class="subtitle"><u>Leaderboards</u></h2>
+        <table class="leaderboards-table">
+          <tr>
+            <td>Player 1</td>
+            <td>Tie</td>
+            <td>Player 2</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </table>
+        <div class="reset-button-div">
+          <button class="reset-button">Reset Score</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
