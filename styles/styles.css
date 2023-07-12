@@ -43,6 +43,7 @@ span {
 
 .content {
   display: flex;
+  justify-content: space-between;
 }
 
 .reset-button {
@@ -61,10 +62,60 @@ span {
   font-size: 2.5rem;
 }
 
-#game-board {
+#gameboard {
   border-collapse: collapse;
-  margin: auto;
+  width: 500px;
+  height: 500px;
   margin-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid white;
+}
+
+.square {
+  width: 160px;
+  height: 160px;
+  background-color: black;
+  border: 3px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 15px solid white;
+  box-sizing: border-box;
+}
+
+.cross {
+  height: 120px;
+  width: 120px;
+  position: relative;
+  transform: rotate(45deg);
+}
+
+.cross:before,
+.cross:after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+
+.cross:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
 }
 
 #game-board td {
