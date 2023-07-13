@@ -31,7 +31,7 @@ function addGo(e) {
     let goDisplay = document.createElement("div")
     goDisplay.classList.add(go)
     e.target.append(goDisplay)
-    go = go === "cross" ? "circle" : "cross"
+    go = (go === "cross") ? "circle" : "cross";
     infoDisplay.textContent = "it is now " + go + "'s Turn."
     e.target.removeEventListener("click", addGo)
     checkScore()
@@ -45,27 +45,27 @@ function checkScore(){
         [0,4,8], [2,4,6]
     ]
     winningCombos.forEach(array =>{
-        let circleWins = array.every(cell =>
+        let crossWins = array.every(cell =>
             allSquares[cell].firstChild?.classList.contains('cross'))
 
-        if (circleWins) {
-            infoDisplay.textContent = "Circle Wins!"
-            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
-            newScore = crossValue +1
-            crossScore.textContent = newScore
+        if (crossWins) {
+            infoDisplay.textContent = "Cross Wins!"
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))// this line stops the game after a player won
+            crossValue +=1
+            crossScore.textContent = crossValue
             return
         }
     })
 
     winningCombos.forEach(array =>{
-        let crossWins = array.every(cell =>
+        let circleWins = array.every(cell =>
             allSquares[cell].firstChild?.classList.contains('circle'))
 
-        if (crossWins) {
-            infoDisplay.textContent = "Cross Wins!"
-            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
-            newScore = circleValue +1
-            circleScore.textContent = newScore
+        if (circleWins) {
+            infoDisplay.textContent = "Circle Wins!"
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))// this line stops the game after a player won
+            circleValue += 1
+            circleScore.textContent = circleValue
             return
         }
     })
