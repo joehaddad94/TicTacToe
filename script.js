@@ -28,10 +28,19 @@ function createBoard() {
 createBoard()
 
 function addGo(e) {
+    //  let parentDiv = e.target
+    // console.log(parentDiv)
+    // let trackedIdExists = parentDiv.querySelector('#tracked') !== null;
+    // console.log(trackedIdExists)
+    // let idTracker = 'tracked'
+    // goDisplay.id = idTracker
+    // let trackedIdExists = parentDiv.querySelector('#tracked') !== null;
+    // console.log(e.target)
+    
     let goDisplay = document.createElement("div")
-    goDisplay.classList.add(go)
     e.target.append(goDisplay)
-    go = (go === "cross") ? "circle" : "cross";
+    goDisplay.classList.add(go)
+     go = (go === "cross") ? "circle" : "cross";
     infoDisplay.textContent = "it is now " + go + "'s Turn."
     e.target.removeEventListener("click", addGo)
     checkScore()
@@ -50,7 +59,7 @@ function checkScore(){
 
         if (crossWins) {
             infoDisplay.textContent = "Cross Wins!"
-            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))// this line stops the game after a player won
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
             crossValue +=1
             crossScore.textContent = crossValue
             return
@@ -63,7 +72,7 @@ function checkScore(){
 
         if (circleWins) {
             infoDisplay.textContent = "Circle Wins!"
-            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))// this line stops the game after a player won
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
             circleValue += 1
             circleScore.textContent = circleValue
             return
@@ -73,12 +82,29 @@ function checkScore(){
  
 
 function restartGame () {
-    let allSquares = document.querySelectorAll('.square');
-    console.log(allSquares)
+    gameBoard.innerHTML = ''
+    createBoard()
+    // let allSquares = document.querySelectorAll('.square');
+    // // console.log(allSquares)
+    // let crossDiv= document.querySelectorAll('.cross')
+    // let circleDiv= document.querySelectorAll('.circle')
+      
+    // for (let i = 0; i < crossDiv.length; i++) {
+    //     crossDiv[i].classList.remove( 'cross');
+    //     allSquares[i].removeChild
+    // }
 
-    for (let i = 0; i < allSquares.length; i++) {
-        allSquares[i].classList.remove('circle', 'cross');
-    }
+    // for (let i = 0; i < circleDiv.length; i++) {
+    //     circleDiv[i].classList.remove( 'circle');
+    //     circleDiv.remove
+    //     // console.log(allSquares)
+    // }
+
+    // console.log(allSquares[0])
+    // for (let i = 0; i < allSquares.length -1; i++) {
+    //     console.log(i);
+    //     allSquares[i].classList.remove('circle', 'cross');
+    // }
 }
 
 function resetScore () {
